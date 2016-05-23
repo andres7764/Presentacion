@@ -31,7 +31,7 @@ window.onload = function()
 	camara.position.y = 160;
 	camara.position.z = 400;
 	camara.lookAt(object.position);
-	sol.position.x = 400;
+	sol.position.x = 600;
 	object.position.x = -300;
 	escena.add(camara);
 	
