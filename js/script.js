@@ -30,7 +30,7 @@ window.onload = function()
 	var camara = new THREE.PerspectiveCamera(50,(ancho / alto),0.1, 10000);
 	camara.position.y = 160;
 	camara.position.z = 400;
-	sol.position.x = -1000;
+	sol.position.x = 400;
 	object.position.x = 900;
 	camara.lookAt(object.position);
 	var cons = 0;
