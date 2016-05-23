@@ -35,12 +35,17 @@ window.onload = function()
 	};
 //cargar
 	$('#planeta').change(function(){
+		if($('#planeta').val() === "seleccione"){
+			$("#texto").html("");
+			
+				responsiveVoice.speak("Por favor seleccione uno de los planetas de la lista", "Spanish Latin American Female");
+		} else { 
 		responsiveVoice.cancel();
 		$.ajax({
 			datatype: JSON,
 			data: {planeta: $('#planeta').val()},
 			method: 'POST', 
-			url: 'http://http://104.154.58.249:8080/obtenerPlanetas'
+			url: 'http://104.154.58.249:8080/obtenerPlanetas'
 		}).done(function(results){
 			var planeta = crearPlaneta(results);
 			$("#head").remove();
@@ -58,6 +63,11 @@ window.onload = function()
 				responsiveVoice.speak(results[0].descripcion, "Spanish Latin American Female");
 			});
 
-		})
+			})
+		}
 	});
+
+	$('#info').click(function(){
+		responsiveVoice.speak("Información tomada de wikipedia", "Spanish Latin American Female");
+	})
 };
