@@ -70,4 +70,7 @@ window.onload = function()
 	$('#info').click(function(){
 		responsiveVoice.speak("Información tomada de wikipedia", "Spanish Latin American Female");
 	})
+	$('#sol').click(function(){
+		swal("El sol!", "El Sol es también nuestra principal fuente de energía, que se manifesta, sobre todo, en forma de luz y calor. Esta a 150 millones de kilómetros de la Tierra. su diametro es de 695.000 km. Su rotación sobre su mismo eje es de 25 a 36 días. <br>su temperatura superficial es de 6000 º C")
+	})
 };
