@@ -2,16 +2,25 @@ window.onload = function()
 {
 	var crearPlaneta = function(data)
 	{
+		
 		var ancho = window.innerWidth;
 		var alto = window.innerHeight;
 		var lienzo = new THREE.WebGLRenderer({alpha: true});
 		lienzo.setSize(ancho, alto);
 		document.body.appendChild(lienzo.domElement);
+	/*Pintar sol*/
+//		var tamanoSol = Math.floor((data[0].tamano / 32984) * 100);
+		var geometria = new THREE.SphereGeometry(400,400,400);
+		var textura = THREE.ImageUtils.loadTexture("img/sol.jpg");
+		var material = new THREE.MeshBasicMaterial( { map: textura } );
+		var sol = new THREE.Mesh(geometria, material);
+	/* Pintar planeta*/
 		var tamano = Math.floor((data[0].tamano / 32984) * 100);
 		var geometria = new THREE.SphereGeometry(tamano,tamano,tamano);
 		var textura = THREE.ImageUtils.loadTexture(data[0].imagen);
 		var material = new THREE.MeshBasicMaterial( { map: textura } );
 		var object = new THREE.Mesh(geometria, material);
+		
 		//return new THREE.Mesh(geometria, material);
 	var escena 		  = new THREE.Scene,
 	tamanoJupiter = 300;
@@ -21,6 +30,7 @@ window.onload = function()
 	camara.position.y = 160;
 	camara.position.z = 400;
 	object.position.x = 900;
+	sol.position.x = 500;
 	camara.lookAt(object.position);
 	var cons = 0;
 	escena.add(camara);
@@ -28,6 +38,7 @@ window.onload = function()
 	function renderizar()
 	{
 		object.rotation.y += 0.001;
+		sol.rotation.y += 0.001;
 		lienzo.render(escena, camara);
 		requestAnimationFrame(renderizar);
 	}
