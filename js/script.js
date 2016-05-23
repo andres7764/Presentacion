@@ -10,7 +10,7 @@ window.onload = function()
 		document.body.appendChild(lienzo.domElement);
 	/*Pintar sol*/
 //		var tamanoSol = Math.floor((data[0].tamano / 32984) * 100);
-		var geometria = new THREE.SphereGeometry(400,400,400);
+		var geometria = new THREE.SphereGeometry(300,300,300);
 		var textura = THREE.ImageUtils.loadTexture("img/sol.jpg");
 		var material = new THREE.MeshBasicMaterial( { map: textura } );
 		var sol = new THREE.Mesh(geometria, material);
@@ -31,7 +31,7 @@ window.onload = function()
 	camara.position.y = 160;
 	camara.position.z = 400;
 	camara.lookAt(object.position);
-	sol.position.x = 500;
+	sol.position.x = 400;
 	object.position.x = -300;
 	escena.add(camara);
 	
