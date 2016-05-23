@@ -24,7 +24,8 @@ window.onload = function()
 		//return new THREE.Mesh(geometria, material);
 	var escena 		  = new THREE.Scene,
 	tamanoJupiter = 300;
-	escena.add(object); 
+	escena.add(object);
+	escena.add(sol);
 
 	var camara = new THREE.PerspectiveCamera(50,(ancho / alto),0.1, 10000);
 	camara.position.y = 160;
