@@ -31,8 +31,13 @@ window.onload = function()
 	camara.position.y = 160;
 	camara.position.z = 400;
 	camara.lookAt(object.position);
-	sol.position.x = 600;
-	object.position.x = -300;
+	if(data[0].nombrePlaneta === "Jupiter")
+	{
+		object.position.x = 900;
+	} else {
+		sol.position.x = 600;
+		object.position.x = -300;	
+	}
 	escena.add(camara);
 	
 	function renderizar()
